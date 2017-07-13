@@ -10,6 +10,7 @@ public class historycard : MonoBehaviour {
     public Transform card2;
     public GameObject cardprefeb;
 
+    private List<GameObject> cardList = new List<GameObject>();
     private float yOffSet;
 
 	// Use this for initialization
@@ -30,5 +31,11 @@ public class historycard : MonoBehaviour {
         GameObject go = GameObject.Instantiate(cardprefeb, incard.position, Quaternion.identity) as GameObject;
         yield return 0;
         go.transform.position = incard.position;
+        iTween.MoveTo(go, card1.position, 1f);
+        cardList.Add(go);
+        for (int i = 0; i < cardList.Count - 1; i++)
+        {
+            iTween.MoveTo(cardList[i], cardList[i].transform.position + new Vector3(0, yOffSet,0), 0.5f);
+        }
     }
 }
