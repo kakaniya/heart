@@ -8,10 +8,12 @@ public class hero1craystal : MonoBehaviour {
     public int totalNumber = 1;
     public int MaxNumber;
     public UISprite[] crystals;
+    private UILabel label;
 
     private void Awake()
     {
         MaxNumber = crystals.Length;
+        label = this.GetComponent<UILabel>();
     }
 
     // Use this for initialization
@@ -52,5 +54,7 @@ public class hero1craystal : MonoBehaviour {
                 crystals[i].spriteName = "TextInlineImages_0" + (1 + i);
             }
         }
+
+        label.text = useableNumber + "/" + totalNumber;
     }
 }

@@ -33,6 +33,13 @@ public class historycard : MonoBehaviour {
         go.transform.position = incard.position;
         iTween.MoveTo(go, card1.position, 1f);
         cardList.Add(go);
+        if (cardList.Count > 6)
+        {
+            iTween.MoveTo(cardList[0], outcard.position, 0.5f);
+            Destroy(cardList[0], 2);
+            cardList.RemoveAt(0);
+        }
+
         for (int i = 0; i < cardList.Count - 1; i++)
         {
             iTween.MoveTo(cardList[i], cardList[i].transform.position + new Vector3(0, yOffSet,0), 0.5f);
