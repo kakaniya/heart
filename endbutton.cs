@@ -7,7 +7,7 @@ public class endbutton : MonoBehaviour {
     private UILabel endlable;
 
 	// Use this for initialization
-	void Awake () {
+	void Start () {
         endlable = GameObject.Find("endbuttonlable").GetComponent<UILabel>();
 	}
 	
